@@ -14,7 +14,7 @@ import numpy as np
 # ---- CONFIG ----
 START_DATE = "2019-01-01"
 END_DATE = "2026-09-28"
-OUTPUT_PATH = "price_panel.parquet"
+OUTPUT_PATH = "data/price_panel.parquet"
 
 # Start with a small, liquid test universe. Expand to full S&P 500 once
 # this pipeline is validated end to end.
@@ -32,7 +32,7 @@ def pull_price_data(tickers, start, end):
         end=end,
         group_by="ticker",
         auto_adjust=True,
-        threads=True,
+        threads=False,
     )
     return data
 
